@@ -20,6 +20,8 @@ t.2016 %>% mutate(
 ) -> t.2016
 
 t.2016$wday <- factor(t.2016$wday, levels=c("Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"))
+t.2016$week <- factor(t.2016$week, levels=rev(sort(unique(t.2016$week))))
+
 ggplot(data = t.2016, aes(x = wday, y = week)) +
 geom_tile(aes(fill = TX)) +
 coord_equal(ratio = 1) +
